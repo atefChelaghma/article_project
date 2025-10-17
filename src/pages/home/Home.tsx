@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/store/store'
 
 import './Home.css'
 import { fetchArticles } from '../../redux/features/articles/articlesSlice'
-import ArticleCard from './ArticleCard'
+import ArticleCard from '../../components/ArticleCard/ArticleCard'
 
 const Home = () => {
   const dispatch = useAppDispatch()

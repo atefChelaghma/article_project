@@ -1,10 +1,7 @@
 import React from 'react'
+import type { ArticleCardProps } from './types'
 import type { Article } from '../../redux/features/articles/articlesSlice'
 import './ArticleCard.css'
-
-interface ArticleCardProps {
-  article: Article
-}
 
 // Estimate reading time using content or description (200 wpm baseline)
 function estimateReadMinutes(article: Article): number {
@@ -30,53 +27,56 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
         href={article.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="image-wrapper"
+        className="article-card__image-wrapper"
         aria-label={article.title}
       >
         {article.urlToImage ? (
           <img
             src={article.urlToImage}
             alt={article.title}
-            className="article-image"
+            className="article-card__image"
             loading="lazy"
           />
         ) : (
-          <div className="article-image placeholder" aria-hidden="true" />
+          <div
+            className="article-card__image article-card__image--placeholder"
+            aria-hidden="true"
+          />
         )}
       </a>
-      <div className="article-body">
-        <h3 id={`art-title-${article.id}`} className="article-title">
+      <div className="article-card__body">
+        <h3 id={`art-title-${article.id}`} className="article-card__title">
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             {article.title}
           </a>
         </h3>
         {article.description && (
-          <p className="article-description">{article.description}</p>
+          <p className="article-card__description">{article.description}</p>
         )}
-        <div className="article-meta" aria-label="Article metadata">
+        <div className="article-card__meta" aria-label="Article metadata">
           <span
-            className="meta-author"
+            className="article-card__author"
             title={article.author || 'Unknown author'}
           >
             {article.author || 'Unknown author'}
           </span>
-          <span className="meta-bullet" aria-hidden="true">
+          <span className="article-card__bullet" aria-hidden="true">
             •
           </span>
-          <span className="meta-source" title={article.source.name}>
+          <span className="article-card__source" title={article.source.name}>
             {article.source.name}
           </span>
-          <span className="meta-bullet" aria-hidden="true">
+          <span className="article-card__bullet" aria-hidden="true">
             •
           </span>
-          <span className="meta-date" title={article.publishedAt}>
+          <span className="article-card__date" title={article.publishedAt}>
             {dateStr}
           </span>
-          <span className="meta-bullet" aria-hidden="true">
+          <span className="article-card__bullet" aria-hidden="true">
             •
           </span>
           <span
-            className="meta-readtime"
+            className="article-card__readtime"
             aria-label={`Estimated read time ${readMins} minutes`}
           >
             {readMins} min read

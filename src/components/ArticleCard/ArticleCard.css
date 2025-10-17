@@ -1,4 +1,4 @@
-/* Mobile-first responsive design for ArticleCard */
+/* Inlined ArticleCard styles after relocation */
 
 .article-card {
   display: flex;
@@ -25,7 +25,7 @@
   transform: translateY(-2px);
 }
 
-.image-wrapper {
+.article-card__image-wrapper {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -34,7 +34,7 @@
   position: relative;
 }
 
-.article-image {
+.article-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -42,22 +42,22 @@
   transition: transform 0.5s ease;
 }
 
-.article-card:hover .article-image {
+.article-card:hover .article-card__image {
   transform: scale(1.04);
 }
 
-.article-image.placeholder {
+.article-card__image--placeholder {
   background: linear-gradient(135deg, #e2e8f0, #f8fafc);
 }
 
-.article-body {
+.article-card__body {
   padding: 12px 14px 16px;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.article-title {
+.article-card__title {
   font-size: 15px;
   font-weight: 600;
   line-height: 1.3;
@@ -65,7 +65,7 @@
   color: #111827;
 }
 
-.article-title a {
+.article-card__title a {
   color: inherit;
   text-decoration: none;
   background: linear-gradient(currentColor, currentColor) bottom left / 0 1px
@@ -73,12 +73,12 @@
   transition: background-size 0.35s ease;
 }
 
-.article-title a:hover,
-.article-title a:focus-visible {
+.article-card__title a:hover,
+.article-card__title a:focus-visible {
   background-size: 100% 1px;
 }
 
-.article-description {
+.article-card__description {
   margin: 4px 0 2px;
   font-size: 13px;
   line-height: 1.45;
@@ -90,7 +90,7 @@
   overflow: hidden;
 }
 
-.article-meta {
+.article-card__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -101,21 +101,20 @@
   line-height: 1.2;
 }
 
-.meta-author,
-.meta-source,
-.meta-date,
-.meta-readtime {
+.article-card__author,
+.article-card__source,
+.article-card__date,
+.article-card__readtime {
   max-width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.meta-bullet {
+.article-card__bullet {
   color: #c3c7cc;
 }
 
-/* Larger screens */
 @media (min-width: 560px) {
   .article-card {
     flex-direction: row;
@@ -136,7 +135,6 @@
   }
 }
 
-/* Desktop webview: grid layout, image on the right, wider max width, lighter chrome */
 @media (min-width: 900px) {
   .article-card {
     display: grid;
@@ -218,7 +216,6 @@
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .article-card {
     transition: none;
