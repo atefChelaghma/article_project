@@ -1,7 +1,7 @@
 import React from 'react'
 import type { ArticleCardProps } from './types'
 import type { Article } from '../../redux/features/articles/articlesSlice'
-import './ArticleCard.css'
+import './ArticleCard.scss'
 
 // Estimate reading time using content or description (200 wpm baseline)
 function estimateReadMinutes(article: Article): number {

@@ -1,0 +1,67 @@
+/* BEM styles for Home page */
+
+$home-max-width: 1180px;
+$gap-y: 56px;
+$gap-x: 48px;
+$bp-md: 840px;
+$bp-lg: 1280px;
+$bp-sm: 640px;
+
+.home {
+  max-width: $home-max-width;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+
+  &__title {
+    font-size: 38px;
+    line-height: 1.1;
+    margin: 0 0 42px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $gap-y $gap-x;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: $bp-md) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: $bp-lg) {
+    &__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* Status messages */
+  &__status {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    &--error { color: #e53e3e; }
+    &--loading { color: #4a5568; }
+  }
+
+  /* Legacy article-card overrides kept (block from ArticleCard) */
+  .article-card {
+    box-shadow: none;
+    border: none;
+    &:hover { box-shadow: none; transform: none; }
+  }
+
+  @media (max-width: $bp-sm) {
+    padding: 24px 18px 40px;
+    &__title {
+      font-size: 30px;
+      margin-bottom: 32px;
+    }
+    &__grid {
+      gap: 42px 28px;
+    }
+  }
+}
