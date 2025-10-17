@@ -1,1 +1,1 @@
-npm run check:precommit
+npx lint-staged

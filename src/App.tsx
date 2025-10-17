@@ -1,7 +1,8 @@
 import './App.css'
-const testing = 'joosef'
+
 
 function App() {
+  const testing = 'joosef';
   return (
     <>
       <div> hello</div>
