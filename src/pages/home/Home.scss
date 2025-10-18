@@ -15,9 +15,31 @@ $bp-sm: 640px;
   &__title {
     font-size: 38px;
     line-height: 1.1;
-    margin: 0 0 42px;
+    margin: 0 0 32px;
     font-weight: 600;
     letter-spacing: -0.5px;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 42px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+  }
+
+  &__search {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__filter {
+    flex-shrink: 0;
   }
 
   &__grid {
