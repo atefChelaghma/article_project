@@ -1,24 +1,45 @@
 .feed {
+    position: relative;
+
     &__button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         background-color: #f3f4f6;
         border: none;
         border-radius: 0.5rem;
-        padding: 0.5rem;
+        padding: 1rem;
         cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        color: #374151;
+        font-weight: 500;
 
         &:hover {
             background-color: #e5e7eb;
         }
+
+        &--active {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #3b82f6;
+        }
     }
-    
 
-
+    &__button-text {
+        font-size: 0.875rem;
+        
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
 
     @media (min-width: 1024px) {
-
         &__button {
             padding: 0.5rem 1rem;
+        }
+
+        &__button-text {
+            display: block;
         }
     }
 }

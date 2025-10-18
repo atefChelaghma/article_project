@@ -13,4 +13,14 @@
             border: none;
 
         }
+
+        &__filter-container {
+            margin-top: 0.5rem;
+        }
+
+
+         @media (min-width: 1280px) {
+          max-width: 1180px;
+            margin: 0 auto;
+  }
     }

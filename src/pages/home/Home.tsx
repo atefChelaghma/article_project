@@ -4,14 +4,13 @@ import { useAppDispatch, useAppSelector } from '../../redux/store/store'
 import './Home.scss'
 import { fetchArticles } from '../../redux/features/articles/articlesSlice'
 import ArticleCard from '../../components/articleCard/ArticleCard'
-import { Search } from '../../components/search'
-import { Filter, type FilterState } from '../../components/filter'
+import { type FilterState } from '../../components/filter'
 
 const Home = () => {
   const dispatch = useAppDispatch()
   const { articles, loading, error } = useAppSelector((state) => state.articles)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [filters, setFilters] = useState<FilterState>({
+  const [searchQuery] = useState('')
+  const [filters] = useState<FilterState>({
     category: '',
     date: '',
     source: '',
@@ -21,13 +20,13 @@ const Home = () => {
     dispatch(fetchArticles())
   }, [dispatch])
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query)
-  }
+  // const handleSearch = (query: string) => {
+  //   setSearchQuery(query)
+  // }
 
-  const handleFilterChange = (newFilters: FilterState) => {
-    setFilters(newFilters)
-  }
+  // const handleFilterChange = (newFilters: FilterState) => {
+  //   setFilters(newFilters)
+  // }
 
   // Filter articles based on search query and filters
   const filteredArticles = articles.filter((article) => {
@@ -79,22 +78,7 @@ const Home = () => {
   return (
     <div className="home">
       <h1 className="home__title">News Sources</h1>
-      <div className="home__controls">
-        <div className="home__search">
-          <Search
-            onSearch={handleSearch}
-            value={searchQuery}
-            onChange={setSearchQuery}
-            placeholder="Search articles..."
-          />
-        </div>
-        <div className="home__filter">
-          <Filter
-            onFilterChange={handleFilterChange}
-            initialFilters={filters}
-          />
-        </div>
-      </div>
+      <div className="home__controls"></div>
       <div className="home__grid">
         {filteredArticles.map((article) => (
           <ArticleCard key={article.id} article={article} />

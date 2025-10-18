@@ -1,4 +1,5 @@
 import { Feed } from '../feed/Feed'
+import { Filter } from '../filter'
 import { Search } from '../search'
 import './Header.scss'
 
@@ -29,6 +30,9 @@ const Header = () => {
         <button className="header__logo">N</button>
         <Search />
         <Feed />
+      </div>
+      <div className="header__filter-container">
+        <Filter onFilterChange={() => {}} initialFilters={() => {}} />
       </div>
     </header>
   )
