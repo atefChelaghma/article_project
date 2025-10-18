@@ -1,0 +1,16 @@
+    .header {
+        &__search-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        &__logo {
+            background-color: red;
+            padding: 0.5rem 1rem;
+            font-weight: 900;
+            font-size: 20px;
+            color: white;
+            border: none;
+
+        }
+    }

@@ -1,0 +1,24 @@
+.feed {
+    &__button {
+        background-color: #f3f4f6;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #e5e7eb;
+        }
+    }
+    
+
+
+
+    @media (min-width: 1024px) {
+
+        &__button {
+            padding: 0.5rem 1rem;
+        }
+    }
+}

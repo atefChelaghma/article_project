@@ -1,0 +1,329 @@
+// Mobile-first Filter Component Styles
+
+.filter {
+  width: 100%;
+  position: relative;
+
+  // Mobile Filter Button (default)
+  &__mobile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #374151;
+    position: relative;
+
+    &:hover {
+      border-color: #cbd5e1;
+      background-color: #f8fafc;
+    }
+
+    &:active {
+      background-color: #f1f5f9;
+    }
+
+    // Active filter badge
+    .filter__badge {
+      position: absolute;
+      top: -0.25rem;
+      right: -0.25rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: #3b82f6;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+    }
+  }
+
+  // Desktop Controls (hidden on mobile)
+  &__desktop-controls {
+    display: none;
+  }
+
+  // Dropdown Component
+  &__dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  &__select {
+    appearance: none;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      border-color: #cbd5e1;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.875rem;
+    color: #6b7280;
+    pointer-events: none;
+  }
+
+  &__clear-btn {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #f8fafc;
+      color: #374151;
+      border-color: #cbd5e1;
+    }
+
+    &--drawer {
+      flex: 1;
+      background-color: #f8fafc;
+    }
+  }
+
+  // Mobile Drawer Overlay
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  &__drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.1);
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  &__drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 1rem;
+  }
+
+  &__drawer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+  }
+
+  &__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: #6b7280;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #f3f4f6;
+      color: #374151;
+    }
+  }
+
+  &__drawer-content {
+    padding: 0 1.5rem;
+  }
+
+  &__drawer-section {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__drawer-footer {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+    background-color: #f8fafc;
+  }
+
+  &__apply-btn {
+    flex: 2;
+    padding: 0.875rem 1.5rem;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #2563eb;
+    }
+
+    &:active {
+      background-color: #1d4ed8;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+// Tablet styles (768px and up)
+@media (min-width: 768px) {
+  .filter {
+    &__mobile-btn {
+      max-width: 200px;
+    }
+
+    &__drawer {
+      max-height: 70vh;
+    }
+  }
+}
+
+// Desktop styles (1024px and up)
+@media (min-width: 1024px) {
+  .filter {
+    // Hide mobile button on desktop
+    &__mobile-btn {
+      display: none;
+    }
+
+    // Show desktop controls
+    &__desktop-controls {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    &__dropdown {
+      min-width: 160px;
+    }
+
+    &__clear-btn {
+      align-self: flex-end;
+      height: fit-content;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.125rem;
+    }
+
+    // Hide drawer overlay on desktop (shouldn't be accessible anyway)
+    &__overlay {
+      display: none;
+    }
+  }
+}
+
+// Extra large screens (1280px and up)
+@media (min-width: 1280px) {
+  .filter {
+    &__desktop-controls {
+      gap: 2rem;
+    }
+
+    &__dropdown {
+      min-width: 180px;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .filter {
+    &__mobile-btn,
+    &__select {
+      border-width: 3px;
+    }
+
+    &__overlay {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .filter {
+    &__mobile-btn,
+    &__select,
+    &__clear-btn,
+    &__close-btn,
+    &__apply-btn {
+      transition: none;
+    }
+
+    &__overlay,
+    &__drawer {
+      animation: none;
+    }
+  }
+}
